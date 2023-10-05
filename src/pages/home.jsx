@@ -33,13 +33,13 @@ function Home() {
       />
       <div className='card-list'>
         <ul>
-          {Object.values(clubesData).map((clube) => (
+          {Object.values(clubesData).slice(1).map((clube) => (
             <li key={clube.id} className='container-times'>
               <Link to={`/atletas/${clube.id}`}>
                 <img src={clube.escudos['45x45']} />
               </Link>
               <div className='container-texts'>
-                <h1 className='nome'>{clube.nome}</h1>
+                <h1 className='nome-time'>{clube.nome}</h1>
                 <h1 className='apelido-time'>{clube.apelido}</h1>
               </div>
 

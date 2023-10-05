@@ -11,6 +11,7 @@
 .text-title{
     color: #000;
     font-size: 30px;
+    padding-top: 10px;
 }
 
 .container{
@@ -23,7 +24,7 @@
     align-items: center;
     gap: 10px;
 }
-.nome{
+.nome-time{
     font-size: 27px;
     height: 10px;
     font-weight: bold;
@@ -44,6 +45,6 @@
 .container-jogadores{
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-top: 20px;
+    gap: 15px;
+    padding-bottom: 20px;
 }

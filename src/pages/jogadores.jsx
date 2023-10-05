@@ -18,6 +18,17 @@ function Jogadores() {
     fetchData();
   }, [idTime]);
 
+
+
+  if (!jogadores.atletas) {
+    return (
+      <div className='container'>
+        <p>Nenhum jogador disponível para este time.</p>
+      </div>
+    );
+  }
+
+
   return (
     <div className='container'>
       <img
@@ -27,15 +38,25 @@ function Jogadores() {
       />
       <div className='card-list'>
         <ul>
-          {jogadores.atletas.map((atleta) => {
-            const fotoUrl = atleta.foto.replace('FORMATO', '220x220');
+          {Object.values(jogadores.clubes || {}).map((clube) => (
+            <h1 className='text-title'>Jogadores do {clube.nome}</h1>
+          ))}
 
-            return (
-              <li key={atleta.atleta_id} className='container-jogadores'>
-                <img className='jogadores-img' src={fotoUrl} />
-                <h1 className='nome'>{atleta.nome}</h1>
-              </li>
-            );
+          {jogadores.atletas.map((atleta) => {
+            const fotoUrl = atleta.foto && atleta.foto.replace('FORMATO', '220x220');
+
+
+            if (fotoUrl) {
+              return (
+                <li key={atleta.atleta_id} className='container-jogadores'>
+                  <img
+                    className='jogadores-img'
+                    src={fotoUrl}
+                  />
+                  <h1 className='nome'>{atleta.nome}</h1>
+                </li>
+              );
+            }
           })}
         </ul>
       </div>
