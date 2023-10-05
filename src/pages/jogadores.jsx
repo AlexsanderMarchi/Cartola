@@ -23,8 +23,19 @@ function Jogadores() {
   if (!jogadores.atletas) {
     return (
       <div className='container'>
-        <p>Nenhum jogador disponível para este time.</p>
+      <img
+        className='cartola-logo'
+        src='https://logodownload.org/wp-content/uploads/2017/05/cartola-fc-logo-5.png'
+        alt='cartola Logo'
+      />
+      <div className='card-list-na'>
+        <ul>
+        {Object.values(jogadores.clubes || {}).map((clube) => (
+            <h1 className='text-title'>Jogadores do {clube.nome}</h1>
+          ))}
+        </ul>
       </div>
+    </div>
     );
   }
 
@@ -53,7 +64,7 @@ function Jogadores() {
                     className='jogadores-img'
                     src={fotoUrl}
                   />
-                  <h1 className='nome'>{atleta.nome}</h1>
+                  <h1 className='nome-jogador'>{atleta.nome}</h1>
                 </li>
               );
             }
